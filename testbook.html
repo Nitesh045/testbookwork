@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="first_page">
+        <div class="img">
+            <img src="./download.png" alt="testbook logo">
+        </div>
+        <div class="student">
+            <h2>Hello Student!</h2>
+        </div>
+        <div class="intro">
+            <h4>Rule for this Test!</h4>
+            <p>Read Carefully</p>
+            <div class="rule_info">
+                <ul class="list-1">
+                 <li>There are 4 subjects !</li>
+                <li> you have to choose anyone !</li>
+                <li> Each subjects have 10 questions</li>
+                <li>Four multiple choice option for each questions </li>
+                <li> You have to complete test within 20 minutes </li>
+                <li> In this quiz write your name and start test</li>
+                <li> No negative marks question</li>
+                <li>Each questions have 2 number</li>
+                </ul>
+            </div><!--list rule info done-->
+        </div><!--intro div ind -->
+       <div class="name_input">
+        <input type="text" id="userinput" name="text1"> <button id="first_sub" name="submit">Submit</button>
+        <p id="pop-1" > </p>
+        
+       </div>
+        <div class="btn-1">
+            <button id="btn-first_page">Next</button>
+        </div>
+    </div><!--first page dive end -->
+    <div class="second_page">
+        <div class="img">
+            <img src="./download.png" alt="testbook logo">
+        </div>
+        <div ><h3 id="student_Name"></h3></div>
+        <div class="student">
+            <h2>Select Your Subject !</h2>
+        </div> <!--end upper-->
+        <div class="subject_name-1">
+            <button id="a">HTML</button> <button id="b">CSS</button>     
+        </div>
+        <div class="subject_name-2">
+            
+            <button id="c">javascript</button> <button id="d">Jquerry</button>
+            
+        </div> <!--subject end -->
+        <div class="second_next_page">
+            <button id="frwd-1"> Start </button>
+            <button id="frwd-2"> Start </button>
+            <button id="frwd-3"> Start </button>
+            <button id="frwd-4"> Start </button>
+        </div>
+    </div><!--second div page end for subject selction-->
+    <div class="ques">
+        <div class="upper-ques">
+             <p id="time1"></p>
+             <p id="subject1"></p>
+             <p id="score1"></p>
+        </div>
+        <div class="ques-middle">
+            <p id="ques-count">1/10</p> 
+           <div id="ques-nub"><!--1) This is the first question?</div>
+          <div class="ab-1">
+            <input type="radio" name="ans" id="r0" value="0" /><label for="r0"
+              >Answer One</label
+            >
+          </div>
+          <div class="ab-1">
+            <input type="radio" name="ans" id="r1" value="1" /><label for="r1"
+              >Answer Two</label
+            >
+          </div>
+          <div class="ab-1">
+            <input type="radio" name="ans" id="r2" value="2" /><label for="r2"
+              >Answer Two</label
+            >
+          </div>
+          <div class="ab-1">
+            <input type="radio" name="ans" id="r3" value="3" /><label for="r3"
+              >Answer Two</label >
+          </div>
+        </div>-->
+        
+    </div>
+    <div class="lower">
+      <button id="ques-sub">NEXT</button>
+    </div>
+    <div class="final">
+      <p id="last-name"></p>
+      <p id="correct-answer"></p>
+    </div>
+    
+    <!--question div-->
+
+    <script type="text/javascript">
+     const quizHtmlQuestion =[
+        {    numb :1,
+            question : " what does the abbreviation HTML stand for ?",
+            options : ["hyperTeext Markup Language ", "HighText Markup Language", "HyperText Markdon Language", "None of the above"],
+            answerIndex:0,
+        },
+        {
+          numb :2,
+            question : "  Who is making the Web standards?",
+            options : ["Google","Mozilla","The World Wide web Consortium","Microsofr"],
+            answerIndex :2,
+
+        },
+        {
+          numb :3,
+          question : "  Choose the correct HTML element for the largest heading ? ",
+          options : ["head","heading","h6","h1"],
+          answerIndex : 3,
+
+  
+        },
+        {  
+          numb :4,
+          question : "  What is the correct HTML element for inserting a line break?",
+          options : ["lb" , "br","break","none of the above"],
+            answerIndex : 1 , 
+        },
+        {
+          numb :5,
+          question : "  What is the correct HTML for adding a background color?",
+          options : ["body bg ='yellow '", "background yellow background","body style='background-color :yello'","None of the above"],
+            answerIndex:2,
+        },
+        {
+          numb :6,
+          question: "  Choose the correct HTML element to define important text",
+          options : ["strong","i","b","important"],
+            answerIndex: 0,
+
+        },
+        {
+          numb :7,
+          question : " Choose the correct HTML element to define emphasized text",
+          options : ["italic","em","i","none of the above"],
+          answerIndex:1,
+
+
+        },
+        {
+          numb :8,
+          question : "  What is the correct HTML for creating a hyperlink?",
+          options : ["href","url","name","a tag"],
+          answerIndex:0,
+        },
+        {
+          numb :9,
+          question: "  Which character is used to indicate an end tag?",
+          options:["^","/","*","<"],
+          answerIndex:1,
+        },
+        {
+          numb :10,
+          question:"  How can you open a link in a new tab/browser window?",
+          options:["<a href=a href=url target=new","target_self","target=_blank", "None of the above"],
+          answerIndex:2,
+        },
+     ];
+     const quizCssQuestion =[
+      {
+        question:"What does CSS stand for?",
+        options:["computer style sheets","creative style sheets ", "colorful style sheets ", "Cascading style Sheets"],
+        question:3,
+      },
+      {
+        question:"What is the correct HTML for referring to an external style sheet?",
+        options:["stylesheet","style src=mystyle.css","link ", "none of the above"],
+          answerIndex:2,
+
+      },
+      {
+        question :"Where in an HTML document is the correct place to refer to an external style sheet?",
+        options : ["At the end of document","head","body tag","none of the above"],
+         answerIndex:1,
+      },
+      {
+        question :""
+      }
+     ];
+
+
+
+     let currentQuestionHtmlIndex=0 ;
+     const totalNumberHtmlofQuestion= quizHtmlQuestion.length;
+
+
+       const firstPage = document.getElementsByClassName("first_page")[0];
+       const SecontPage =document.getElementsByClassName("second_page")[0];
+       const enterUserName = document.getElementById("userinput");
+       const firstButton = document.getElementById("first_sub");
+       const nextFirstPage = document.getElementById("btn-first_page");
+       const thirdPage = document.getElementsByClassName("ques")[0];
+       nextFirstPage.style.visibility="hidden";
+       SecontPage.style.visibility="hidden";
+       const startButton1 = document.getElementById("frwd-1");
+       const startButton2 = document.getElementById("frwd-2");
+       const startButton3 = document.getElementById("frwd-3");
+       const startButton4 = document.getElementById("frwd-4");
+
+       const htmlButton= document.getElementById("a");
+       const csslButton= document.getElementById("b");
+       const javscriptButton= document.getElementById("c");
+       const jquerrytButton= document.getElementById("d");
+
+       startButton1.style.visibility="hidden";
+       startButton2.style.visibility="hidden";
+       startButton3.style.visibility="hidden";
+       startButton4.style.visibility="hidden";
+
+       const correctdiv = document.getElementById("correct-answer");
+
+       
+      const questiondiv = document.getElementById("ques-nub");
+      thirdPage.style.visibility="hidden";
+      const lastButton= document.getElementById("ques-sub");
+     // const upper_ques_div=document.getElementsByClassName("upper-ques")[0];
+     let timeTaken = document.getElementById("time1");
+     let subjectChoose = document.getElementById("subject1");
+     let scoreGain = document.getElementById("score1");
+
+
+     const counterQuestion = document.getElementById("ques-count");
+     const optionDiv = document.querySelectorAll(".ab-1");
+    // console.log(optionDiv);
+
+   let score = 0;
+   const last_page= document.getElementsByClassName("final")[0];
+   const studentName = document.getElementById("last-name");
+   last_page.style.visibility="hidden";
+   //document.("user").innerHTML=enterUserName.value;
+   let counter ;
+     
+    // const userAnswer = document.querySelector("input[name=ans]:checked");
+    // console.log(correctAnswer);
+
+      lastButton.addEventListener("click",nextButtonClickHandler);
+
+       
+       
+      
+
+
+       
+       
+      
+
+
+
+       firstButton.addEventListener("click", getUserName)
+       function getUserName(){
+       //console.log(enterUserName.value);
+       const studentNameEnter = enterUserName.value;
+       
+      
+      // document.getElementById("")
+       if ( studentNameEnter == null ) {
+            let popup=document.getElementById("pop-1").innerHTML="enter your name";
+           
+            
+       }
+       nextFirstPage.style.visibility="visible";
+     };
+
+     nextFirstPage.addEventListener("click",secondfny)
+     function secondfny(){
+        firstPage.style.visibility="hidden";
+        SecontPage.style.visibility="visible";
+        document.getElementById("student_Name").innerHTML=enterUserName.value;
+        console.log(enterUserName.value);
+        nextFirstPage.style.visibility="hidden";
+        
+     }
+        
+       htmlButton.addEventListener("click",htmlquestFy );
+
+       function htmlquestFy(){
+        startButton1.style.visibility="visible";
+       }
+     startButton1.addEventListener("click",starthandler1);
+     function starthandler1(){
+    /*  upper_ques_div.innerHTML=upper_ques_div.innerHTML + `<div class="timer">time</div>
+            <div class="ques_sub_name">html</div> 
+            <div class="score-1">1/10</div>`;*/ 
+      thirdPage.style.visibility="visible";
+      SecontPage.style.visibility="hidden";
+      startButton1.style.visibility="hidden";
+     //timeTaken.innerHTML=2 ;
+     subjectChoose.innerHTML="Html"
+     scoreGain.innerHTML='0/10';
+       
+      showHtnlQuestion()
+      startTime(0);
+
+      
+     
+     }
+     
+
+
+
+     function showHtnlQuestion(){
+     
+      lastButton.style.visibility="visible";
+      let currentHtmlQuestion = quizHtmlQuestion[currentQuestionHtmlIndex]
+     // const count = quizHtmlQuestion.numb;
+     
+       let numberOfQuestion= counterQuestion.innerHTML=`${quizHtmlQuestion[currentQuestionHtmlIndex].numb}/10`;
+      questiondiv.innerHTML=`<div> ${quizHtmlQuestion[currentQuestionHtmlIndex].numb} . ${currentHtmlQuestion.question} </div>`;
+      
+       
+       
+       
+         for(let index=0; index< currentHtmlQuestion.options.length; index++){
+          const element =currentHtmlQuestion.options[index];
+
+          questiondiv.innerHTML=questiondiv.innerHTML+`<div class="ab-1"><input type="radio" name="ans" id="r${index}" value="${index}"/><label for="r${index}">${element}</label></div>`;
+         }
+
+        
+      
+       
+      
+      
+      
+     }
+
+     function startTime (time){
+      counter = setInterval(timer, 1000);
+      function timer(){
+        //timeTaken.innerHTML = time;
+       // console.log(time);
+        time++;
+        timeTaken.innerHTML=time;
+        timeTaken.style.backgroundColor="red"
+        timeTaken.style.color=blue;
+      }
+     }
+     function nextButtonClickHandler(){
+     // console.log("click next");
+     //let score = 0;
+     
+     //currentQuestionHtmlIndex = currentQuestionHtmlIndex ;
+
+        
+    if(currentQuestionHtmlIndex.numb >=10){
+          
+       }
+
+
+     if(currentQuestionHtmlIndex >= totalNumberHtmlofQuestion){
+      lastButton.style.visibility="hidden";
+      counterQuestion.style.visibility="hidden";
+     // questiondiv.innerHTML="<div style = 'text-align: center';>score</div>"
+     last_page.style.visibility="visible";
+     thirdPage.style.visibility="hidden";
+     studentName.innerHTML="Your Name  "+ enterUserName.value +"!" ;
+
+     correctdiv.innerHTML="your marks is "+ score +".";
+     
+
+     }
+     else{
+      const userAnswerRadioButton =document.querySelector("input[name=ans]:checked");
+      questiondiv.style.backgroundColor="white";
+      //console.log(userAnswer);
+      
+      
+      if(userAnswerRadioButton==null){
+        questiondiv.style.backgroundColor="red";
+        alert("select answer");
+        return;
+      } 
+
+      
+      const userAnswer = userAnswerRadioButton.value;
+      let correctAnswer =quizHtmlQuestion[currentQuestionHtmlIndex].answerIndex;
+     // 
+      if (userAnswer == correctAnswer){
+       score= score+1;
+      scoreGain.innerHTML=`${score}/10`;
+      
+       
+      }
+     // scoreGain.innerHTML=`${score}/10`;
+      currentQuestionHtmlIndex =currentQuestionHtmlIndex + 1;
+      showHtnlQuestion();
+     }
+      
+     
+       
+     //selectAnswer()
+     };
+     
+
+
+
+     
+        
+  
+     
+     
+     
+       
+    </script>
+</body>
+</html>
